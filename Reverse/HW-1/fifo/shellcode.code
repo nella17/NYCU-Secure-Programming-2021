@@ -1,0 +1,5 @@
+s = syscall(0x29, 2, 2, 0x11)
+syscall(0x36, s, 1, 6, [1], 4)
+while 1:
+    syscall(0x2C, s, [1], 0x18, 0, [...], 0x10)
+    syscall(0xE6, 0, 0, [3], 0)

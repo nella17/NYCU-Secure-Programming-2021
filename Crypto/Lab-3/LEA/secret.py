@@ -1,0 +1,2 @@
+FLAG='FLAG{not_flag}'
+SECRET_PASSWORD=b'tztHZAzB5Y'

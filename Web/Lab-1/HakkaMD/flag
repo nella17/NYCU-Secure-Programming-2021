@@ -1,0 +1,1 @@
+FLAG{include(LFI_to_RCE)}

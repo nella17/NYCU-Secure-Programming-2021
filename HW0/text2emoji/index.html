@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text2emoji</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <style>
+        .nes-container {
+            max-width: 70vw;
+            margin: 0 auto;
+            margin-top: 10em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nes-container with-title is-centered">
+        <p class="title">text2emoji</p>
+        <div class="nes-field is-inline">
+            <label>Text</label>
+            <input type="text" class="nes-input" id="input" placeholder="cat">
+        </div>
+        <br>
+        <div class="nes-field is-inline">
+            <label>Result</label>
+            <input type="text" class="nes-input" id="output" placeholder="🐱" readonly>
+        </div>
+        <br>
+        <button type="button" class="nes-btn is-primary" id="convert">Convert</button>
+        <button type="button" class="nes-btn is-success" onclick="location='/source'">&lt;/&gt; Source</button>
+    </div>
+
+    <script>
+        const convert = document.getElementById('convert');
+
+        convert.addEventListener('click', function () {
+            fetch('/public_api', {
+                method: 'POST',
+                body: JSON.stringify({ text: document.getElementById('input').value }),
+                headers: { 'Content-type': 'application/json' }
+            })
+                .then(r => r.json())
+                .then(json => {
+                    if (json.error)
+                        alert(json.error);
+                    else
+                        document.getElementById('output').value = json.result;
+                });
+        });
+    </script>
+</body>
+
+</html>
