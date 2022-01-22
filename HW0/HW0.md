@@ -18,9 +18,10 @@ for i in range(h):
 cv2.imwrite('xor.png', flag)
 ```
 
-<img src="./[HW0] to bf or not to bf/xor.png" alt="xor" style="zoom:45%;" />
+<img src="./to bf or not to bf/xor.png" alt="xor" style="zoom:45%;" />
 
 <div style="page-break-after: always;"></div>
+
 ## [HW0] XAYB `Rev` [50]
 
 ### Sol1
@@ -48,9 +49,10 @@ print(flag)
 
 Patch `jnz short loc_156D` at `0x0151C` to bypass check.
 
-![](./[HW0] XAYB/run.png)
+![](./XAYB/run.png)
 
 <div style="page-break-after: always;"></div>
+
 ## [HW0] Arch Check `Pwn` [50]
 
 Just overflow, overwrite return address.
@@ -82,6 +84,7 @@ success(flag)
 ```
 
 <div style="page-break-after: always;"></div>
+
 ## [HW0] text2emoji `Web` [50]
 
 Path traversal to access `/looksLikeFlag` endpoint, and brute force to get flag.
